@@ -1,0 +1,40 @@
+cabal-version:      2.4
+name:               adventOfCode
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             EyePathSamurAI
+maintainer:         incompleteness1357@gmail.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+executable 2022-challenge1
+  hs-source-dirs:      src/2022
+  main-is:             Challenge1.hs
+  build-depends:       base >=4.16 && <4.17
+  default-language:    Haskell2010
+
+executable 2022-challenge2
+  hs-source-dirs:      src/2022
+  main-is:             Challenge2.hs
+  build-depends:       base >=4.16 && <4.17
+  default-language:    Haskell2010
+
+executable 2021-challenge1
+  hs-source-dirs:      src/2021
+  main-is:             Challenge1.hs
+  build-depends:       base >=4.16 && <4.17
+  default-language:    Haskell2010
