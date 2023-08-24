@@ -1,0 +1,7 @@
+As I'm learning this new language I want to keep in mind some of the diffucutlies I have
+
+
+It is hard to figure out where to put print statements in intermidate steps. I want to see some values in a "let in" expression but I dont know where to put It
+
+When reading things like "." I feel like I am reading it backwards. I would like to read everything left to right,
+and have things ordered like "(a -> b) -> (b -> c) -> (a -> c)" not "(b -> c) -> (a -> b) -> (a -> c)"

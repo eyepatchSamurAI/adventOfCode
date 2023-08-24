@@ -1,0 +1,23 @@
+// Start wsl in specific directory
+wsl --cd C:\Users\video\Desktop\myGithub\eyepatchSamurAI11\adventOfCode\ocaml
+
+// Create project with Dune
+dune init proj NAME_OF_PROJECT
+
+// Build
+// dune Build
+
+// Execute
+// dune exec advent_of_code
+// This also works -- dune exec ./bin/main.exe
+
+// Open your project in VS Code directly from WS
+code .
+
+// Apply changes to the ocaml envrionment???
+// eval $(opam env)
+
+// Steps to start developing
+1. On Winodws go to the ocaml directory in terminal
+2. Start wsl in the directory: wsl --cd C:\Users\video\Desktop\myGithub\eyepatchSamurAI11\adventOfCode\ocaml
+3. Now in that same directory run: code .

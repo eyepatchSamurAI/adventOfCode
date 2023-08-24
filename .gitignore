@@ -1,2 +1,3 @@
 haskell/dist-newstyle/
 rust/target/
+ocaml/_build/
