@@ -33,9 +33,11 @@ executable 2021-challenge2
   default-language:    Haskell2010
 executable 2021-challenge3
   hs-source-dirs:      src/2021/Challenge3
-  main-is:             Challenge3.hs
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.17
   default-language:    Haskell2010
+
+---------------------------------------------------------------------------
 
 executable 2022-challenge1
   hs-source-dirs:      src/2022/Challenge1
