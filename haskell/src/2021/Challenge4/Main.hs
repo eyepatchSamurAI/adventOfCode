@@ -28,7 +28,7 @@ isBoardWinner board = (foldl isRowWinner False board) && foldl (isColWinner boar
   where
     isRowWinner [] = False
     isRowWinner (x:xs) = x == '*' || isRowWinner xs
-    isColWinner board colNum = map (\x ->)
+    isColWinner board colNum = foldr (\x acc -> (board !! colNum) == '*' || acc) False board
 
 
 chunkList :: [a] -> [[a]]
