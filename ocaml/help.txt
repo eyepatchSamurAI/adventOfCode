@@ -21,3 +21,8 @@ code .
 1. On Winodws go to the ocaml directory in terminal
 2. Start wsl in the directory: wsl --cd C:\Users\video\Desktop\myGithub\eyepatchSamurAI11\adventOfCode\ocaml
 3. Now in that same directory run: code .
+
+
+# How to run 2023 day 1
+1. eval $(opam env)
+2. dune exec src/2023/day1/puzzle.exe OR ./run.sh 2023 1

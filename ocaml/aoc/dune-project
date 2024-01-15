@@ -1,6 +1,6 @@
-(lang dune 3.10)
+(lang dune 3.12)
 
-(name advent_of_code)
+(name aoc)
 
 (generate_opam_files true)
 
@@ -11,12 +11,12 @@
 
 (maintainers "Maintainer Name")
 
-(license LICENSE)
+(license MIT)
 
 (documentation https://url/to/documentation)
 
 (package
- (name advent_of_code)
+ (name aoc)
  (synopsis "A short synopsis")
  (description "A longer description")
  (depends ocaml dune)

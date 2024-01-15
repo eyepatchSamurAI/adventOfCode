@@ -1,3 +1,10 @@
 haskell/dist-newstyle/
+
+# Rust
 rust/target/
-ocaml/_build/
+
+# OCaml
+ocaml/aoc/_build/
+
+# Haskell
+
