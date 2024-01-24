@@ -8,3 +8,5 @@ ocaml/aoc/_build/
 
 # Haskell
 
+# Zig
+zig/zig-cache

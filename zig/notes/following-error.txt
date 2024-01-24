@@ -1,0 +1,93 @@
+This code
+
+const std = @import("std");
+
+pub fn main() !void {
+    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
+    var gp = std.heap.GeneralPurposeAllocator(.{ .safety = true }){};
+    defer _ = gp.deinit();
+    const allocator = gp.allocator();
+    var iter = try read_from_challenge(allocator);
+    var total: usize = 0;
+
+    var count: usize = 0;
+    while (iter.next()) |line| : (count += 1) {
+        // std.log.info("{d:>2}: {s}", .{ count, line });
+        // std.debug.print("{s}\n", .{line});
+        var bucket: [2]?u8 = undefined;
+        for (0..line.len) |i| {
+            const front_element = line[i];
+            const back_element = line[line.len - 1 - i];
+
+            if (bucket[0] != null and isDigit(front_element)) {
+                // const integer = try std.fmt.parseInt(u8, front_element, 10);
+                bucket[0] = front_element;
+            }
+
+            if (bucket[1] != null and isDigit(back_element)) {
+                // const integer = try std.fmt.parseInt(u8, back_element, 10);
+                bucket[1] = back_element;
+            }
+
+            if (bucket[0] != null and bucket[1] != null) {
+                break;
+            }
+        }
+        const value0 = bucket[0] orelse 0; // Provide a default value if null
+        const value1 = bucket[1] orelse 0;
+        total += (value0 * 10) + value1; // Correctly perform the calculation
+
+    }
+    // std.debug.print("{d}\n", .{total});
+}
+
+pub fn read_from_challenge(allocator: std.mem.Allocator) !std.mem.SplitIterator(u8, .sequence) {
+    var path_buffer: [std.fs.MAX_PATH_BYTES]u8 = undefined;
+    const path = try std.fs.realpath("../../../../../data/year2023/challenge1/sample.txt", &path_buffer);
+
+    const file = try std.fs.openFileAbsolute(path, .{});
+    defer file.close();
+
+    const buffer_size = 2000;
+    const file_buffer = try file.readToEndAlloc(allocator, buffer_size);
+    defer allocator.free(file_buffer);
+
+    const iter = std.mem.splitSequence(u8, file_buffer, "\n");
+
+    return iter;
+}
+
+fn isDigit(c: u8) bool {
+    return c >= '0' and c <= '9';
+}
+
+
+
+Will give this output error
+
+
+Segmentation fault at address 0x7fbd03885000
+/home/coastghost/Desktop/languages/zig/lib/std/mem.zig:1216:53: 0x1054e49 in indexOfScalarPos__anon_7050 (main)
+                    const block: BlockX = slice[i..][0..block_x_len].*;
+                                                    ^
+/home/coastghost/Desktop/languages/zig/lib/std/mem.zig:1409:32: 0x102de97 in indexOfPos__anon_4737 (main)
+        return indexOfScalarPos(T, haystack, start_index, needle[0]);
+                               ^
+/home/coastghost/Desktop/languages/zig/lib/std/mem.zig:2924:40: 0x1027f42 in next (main)
+                .sequence => indexOfPos(T, self.buffer, start, self.delimiter),
+                                       ^
+/home/coastghost/Desktop/github/eyepathSamurAI/adventOfCode/zig/src/challenges/2023/challenge1/main.zig:12:21: 0x1027990 in main (main)
+    while (iter.next()) |line| : (count += 1) {
+                    ^
+/home/coastghost/Desktop/languages/zig/lib/std/start.zig:585:37: 0x1026025 in posixCallMainAndExit (main)
+            const result = root.main() catch |err| {
+                                    ^
+/home/coastghost/Desktop/languages/zig/lib/std/start.zig:253:5: 0x1025b11 in _start (main)
+    asm volatile (switch (native_arch) {
+    ^
+???:?:?: 0x0 in ??? (???)
+Aborted (core dumped)
+
+
+
+I find this crazy had to reason about. With more practice maybe I'll be able to find it
