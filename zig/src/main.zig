@@ -1,24 +1,34 @@
 const std = @import("std");
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    var buffer: [1024]u8 = undefined;
+    var fba = std.heap.FixedBufferAllocator.init(&buffer);
+    const allocator = fba.allocator();
 
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
+    var args = try std.process.argsWithAllocator(allocator);
+    defer args.deinit();
 
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
+    var yearArg: ?u16 = null;
+    var challengeNumberArg: ?u8 = null;
 
-    try bw.flush(); // don't forget to flush!
-}
+    _ = args.next() orelse return error.MissingBinaryName;
 
-test "simple test" {
-    var list = std.ArrayList(i32).init(std.testing.allocator);
-    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
-    try list.append(42);
-    try std.testing.expectEqual(@as(i32, 42), list.pop());
+    while (args.next()) |arg| {
+        if (std.mem.startsWith(u8, arg, "--year=")) {
+            yearArg = try std.fmt.parseInt(u16, arg["--year=".len..], 10);
+        } else if (std.mem.startsWith(u8, arg, "--challenge=")) {
+            challengeNumberArg = try std.fmt.parseInt(u8, arg["--challenge=".len..], 10);
+        }
+    }
+
+    const year = yearArg orelse return error.MissingYearArgument;
+    const challengeNumber = challengeNumberArg orelse return error.MissingChallengeArgument;
+
+    switch (year) {
+        2023 => {
+            const challengeYear2023 = @import("challenges/2023/main.zig");
+            try challengeYear2023.runChallenge(challengeNumber);
+        },
+        else => std.debug.print("Year {d} not found\n", .{year}),
+    }
 }
