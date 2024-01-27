@@ -1,1 +1,2 @@
-// Once you learn more try and restructure to call from single main file
+// Command
+zig build run -- --year=2023 --challenge=2

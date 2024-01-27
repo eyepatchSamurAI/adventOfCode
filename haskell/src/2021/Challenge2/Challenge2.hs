@@ -110,5 +110,5 @@ solveChallengePart2 filename = (.) computeResult2 computeCoordinates2 <$> readFi
 
 main :: IO ()
 main = do
-  result <- solveChallengePart2 "./src/2021/Challenge2/Challenge2.txt"
+  result <- solveChallengePart2 "../data/year2021/challenge2/puzzle.txt" 
   print result

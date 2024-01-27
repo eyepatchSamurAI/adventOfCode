@@ -50,4 +50,4 @@ mostBit bitString = if ones > zeros then 1 else 0
 -- Part 1
 main :: IO ()
 main = do
-  solveChallengePart2 "./src/2021/Challenge3/challenge.txt"
+  solveChallengePart2 "../data/year2021/challenge3/puzzle.txt" 

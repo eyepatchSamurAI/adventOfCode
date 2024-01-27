@@ -53,5 +53,5 @@ solveChallengePart2 fileName = do
 
 main :: IO ()
 main = do
-  result <- solveChallengePart2 "./src/2021/Challenge1/Challenge1.txt"
+  result <- solveChallengePart2 "../data/year2021/challenge1/puzzle.txt"  
   print result
