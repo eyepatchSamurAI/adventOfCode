@@ -15,6 +15,7 @@ fn main() {
         ("2023", "1") => challenges::year2023::challenge1::run(),
         ("2023", "2") => challenges::year2023::challenge2::run(),
         ("2023", "3") => challenges::year2023::challenge3::run(),
+        ("2023", "5") => challenges::year2023::challenge5::run(),
         // Add more cases as needed
         _ => eprintln!("Challenge not found"),
     }

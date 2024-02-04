@@ -23,12 +23,12 @@ extra-source-files: CHANGELOG.md
 
 executable 2021-challenge1
   hs-source-dirs:      src/2021/Challenge1
-  main-is:             Challenge1.hs
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.18
   default-language:    Haskell2010
 executable 2021-challenge2
   hs-source-dirs:      src/2021/Challenge2
-  main-is:             Challenge2.hs
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.18
   default-language:    Haskell2010
 executable 2021-challenge3
@@ -47,20 +47,40 @@ executable 2021-challenge4
 
 executable 2022-challenge1
   hs-source-dirs:      src/2022/Challenge1
-  main-is:             Challenge1.hs
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.18
   default-language:    Haskell2010
 
 executable 2022-challenge2
   hs-source-dirs:      src/2022/Challenge2
-  main-is:             Challenge2.hs
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.18
   default-language:    Haskell2010
 
 ---------------------------------------------------------------------------
 
-executable 2023-challenge1
+executable 2023-challenge3
   hs-source-dirs:      src/2023/Challenge3
-  main-is:             Challenge3.hs
+  main-is:             Main.hs
+  build-depends:       base >=4.13 && <4.18
+  default-language:    Haskell2010
+
+executable 2023-challenge4
+  hs-source-dirs:      src/2023/Challenge4
+  main-is:             Main.hs
+  build-depends:       base >=4.13 && <4.18
+  default-language:    Haskell2010
+
+executable 2023-challenge5
+  hs-source-dirs:      src/2023/Challenge5
+  main-is:             Main.hs
+  build-depends:       base >=4.13 && <4.18
+  default-language:    Haskell2010
+
+---------------------------------------------------------------------------
+
+executable test
+  hs-source-dirs:      src/test
+  main-is:             Main.hs
   build-depends:       base >=4.13 && <4.18
   default-language:    Haskell2010

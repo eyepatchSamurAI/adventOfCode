@@ -49,4 +49,4 @@ solveChallengePart1 fileName = do
 -- Part 1
 main :: IO ()
 main = do
-  solveChallengePart1 "./src/2021/Challenge4/sample.txt"
+  solveChallengePart1 "../data/year2021/challenge4/puzzle.txt"

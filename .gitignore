@@ -2,11 +2,14 @@ haskell/dist-newstyle/
 
 # Rust
 rust/target/
+rust/src/test.rs
 
 # OCaml
 ocaml/aoc/_build/
 
 # Haskell
+haskell/src/test/
+haskell/dis-newstyle
 
 # Zig
 zig/zig-cache
