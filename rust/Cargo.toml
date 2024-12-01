@@ -7,6 +7,9 @@ edition = "2021"
 name = "advent_of_code"
 path = "src/main.rs"
 
+[[bin]]
+name = "test"
+path = "src/test.rs"
 
 [dependencies]
 nom = "7.1.3"
