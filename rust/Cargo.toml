@@ -3,18 +3,14 @@ name = "advent_of_code"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [[bin]]
-name = "2022_challenge1"
-path = "src/2022/challenge1.rs"
+name = "advent_of_code"
+path = "src/main.rs"
 
 [[bin]]
-name = "2022_challenge2"
-path = "src/2022/challenge2.rs"
-
-[[bin]]
-name = "2021_challenge1"
-path = "src/2021/challenge1.rs"
-
+name = "test"
+path = "src/test.rs"
 
 [dependencies]
+nom = "7.1.3"
+regex = "1.10.2"

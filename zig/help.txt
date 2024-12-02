@@ -1,0 +1,2 @@
+// Command
+zig build run -- --year=2023 --challenge=2
