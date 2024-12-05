@@ -1,3 +1,5 @@
+#![feature(iter_map_windows)]
+
 mod challenges;
 mod file;
 
@@ -17,6 +19,9 @@ fn main() {
         ("2023", "3") => challenges::year2023::challenge3::run(),
         ("2023", "5") => challenges::year2023::challenge5::run(),
         ("2024", "1") => challenges::year2024::challenge1::run(),
+        ("2024", "2") => challenges::year2024::challenge2::run(),
+        ("2024", "3") => challenges::year2024::challenge3::run(),
+        ("2024", "4") => challenges::year2024::challenge4::run(),
         // Add more cases as needed
         _ => eprintln!("Challenge not found"),
     }
